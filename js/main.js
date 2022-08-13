@@ -1,4 +1,5 @@
-//  lesson.18.hw.js.4.kulemichev.26.12.2021
+//  lesson.16.hw.js.4.kulemichev.12.06.2022
+
 /* eslint-disable multiline-comment-style */
 
 /*
@@ -55,9 +56,9 @@ let getLocalDate = (date, isSeconds = false, isISO = false) => {
   const reg = new RegExp(':\\d{2}$', 'gui');
   let res;
 
-  if (!isISO) res = isSeconds
-    ? date.toLocaleString()
-    : date.toLocaleString().replace(reg, '');
+  if (!isISO) res = isSeconds ?
+    date.toLocaleString() :
+    date.toLocaleString().replace(reg, '');
   else {
     const year = date.getFullYear();
     const month = date.getMonth() + 1 < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
@@ -66,9 +67,9 @@ let getLocalDate = (date, isSeconds = false, isISO = false) => {
     const minutes = date.getMinutes() < 9 ? `0${date.getMinutes()}` : date.getMinutes();
     const seconds = date.getSeconds() < 9 ? `0${date.getSeconds()}` : date.getSeconds();
 
-    res = isSeconds
-      ? `${year}-${month}-${day}, ${hour}:${minutes}:${seconds}`
-      : `${year}-${month}-${day}, ${hour}:${minutes}`;
+    res = isSeconds ?
+      `${year}-${month}-${day}, ${hour}:${minutes}:${seconds}` :
+      `${year}-${month}-${day}, ${hour}:${minutes}`;
   }
 
   return res;
@@ -239,7 +240,8 @@ console.log(car2.info()); //Opel Zafira, 1.8cc, year 2008, used
 let testPerformance = (iterations, func) => {
   let time = Date.now();
 
-  if (typeof func === 'function') for (let i = iterations; i--;) func();
+  if (typeof func === 'function')
+    for (let i = iterations; i--;) func();
 
   return Date.now() - time;
 };
